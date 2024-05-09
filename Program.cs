@@ -1,4 +1,5 @@
 ﻿using LiteNetLib;
+using LiteNetLib.Utils;
 using System.Net;
 
 namespace LNLBridgePoker;
@@ -31,6 +32,9 @@ public class Program : INatPunchListener
     public void OnNatIntroductionRequest(IPEndPoint localEndPoint, IPEndPoint remoteEndPoint, string token)
     {
         Console.WriteLine($"Recieved NAT Introduction Request on {localEndPoint} from {remoteEndPoint} with {token}");
+        var writer = new NetDataWriter();
+        writer.Put($"Hello {remoteEndPoint}, you sent {token}");
+        Client.SendUnconnectedMessage(writer, remoteEndPoint);
     }
 
     public void OnNatIntroductionSuccess(IPEndPoint targetEndPoint, NatAddressType type, string token)
