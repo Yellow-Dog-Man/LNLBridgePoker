@@ -12,7 +12,7 @@ public class Program : INatPunchListener
 
         Program program = new(int.Parse(args[2]));
 
-        if (IPEndPoint.TryParse(args[0], out IPEndPoint? result))
+        if (Utility.TryParse(args[0], out IPEndPoint? result))
         {
             if (result is null)
             {

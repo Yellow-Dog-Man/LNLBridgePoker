@@ -14,3 +14,9 @@ Once ran the application will send a NAT Introduction Request to the target ip a
 
 Resonite Bridges will respond with `SERVER_GONE:<your token without the C;>` in 90% of cases. This is good though as it still means a successful messaging flow.
 
+# Building
+Usually using these versions:
+- `dotnet publish --framework net472 --runtime linux-x64 -c Debug`
+- `dotnet publish --framework net8 --runtime win-x64 -c Debug`
+- `dotnet publish --framework net472 --runtime win-x64 -c Debug`
+- `dotnet publish --framework net8 --runtime linux-x64 -c Debug`
